@@ -6,6 +6,7 @@ $(function(){
         e.preventDefault();
         console.log("form clicked");
         document.getElementById("sending").style.display = "block";
+        document.getElementById('message-202').innerHTML = "Sending Data...";
         document.getElementById("data-form").style.display = "none";
         let name = $("#name").val();
         let company = $("#company").val();
