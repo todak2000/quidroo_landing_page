@@ -6,7 +6,8 @@ $(function(){
         e.preventDefault();
         console.log("form clicked");
         document.getElementById("sending").style.display = "block";
-        document.getElementById('message-202').innerHTML = "Sending Data...";
+        document.getElementById('message-202').innerHTML = "";
+        document.getElementById("sending-text").style.display = "block";
         document.getElementById("data-form").style.display = "none";
         let name = $("#name").val();
         let company = $("#company").val();
@@ -43,6 +44,7 @@ $(function(){
             success: function(response)
             {
                 document.getElementById("sending").style.display = "none";
+                document.getElementById("sending-text").style.display = "none";
                 if(response.success === true && response.status === 200){
                     document.getElementById("star-talk").style.display = "none";
                     document.getElementById("image-div").style.display = "block";
