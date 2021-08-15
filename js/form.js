@@ -74,3 +74,10 @@ $(function(){
 
 
 
+$(function(){
+    if(document.getElementById('message-202').innerHTML !== ''){
+        setTimeout(function(){ 
+            document.getElementById('message-202').innerHTML = ''
+        }, 3000);
+    }
+})
