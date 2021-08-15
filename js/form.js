@@ -34,7 +34,7 @@ $(function(){
 
         }
         $.ajax({
-            url:base_url_local+'/quidroo',
+            url:base_url+'/quidroo',
             type:'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
