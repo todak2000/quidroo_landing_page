@@ -5,6 +5,8 @@ $(function(){
     $('#form_submit_button').on('click', function (e) {
         e.preventDefault();
         console.log("form clicked");
+        document.getElementById("sending").style.display = "block";
+        document.getElementById("data-form").style.display = "none";
         let name = $("#name").val();
         let company = $("#company").val();
         let email = $("#email").val();
@@ -32,27 +34,26 @@ $(function(){
 
         }
         $.ajax({
-            url:base_url+'/quidroo',
+            url:base_url_local+'/quidroo',
             type:'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data:JSON.stringify(data),
             success: function(response)
             {
-                
+                document.getElementById("sending").style.display = "none";
                 if(response.success === true && response.status === 200){
-                    document.getElementById("data-form").style.display = "none";
                     document.getElementById("star-talk").style.display = "none";
                     document.getElementById("image-div").style.display = "block";
                     document.getElementById('message-202').innerHTML = '';
                     document.getElementById('message').innerHTML = response.message;
                 }
                 else if (response.success === false && response.status === 202){
+                    document.getElementById("data-form").style.display = "block";
                     document.getElementById('message-202').innerHTML = response.message;
                 }
                 else{
                     document.getElementById('message-202').innerHTML = '';
-                    document.getElementById("data-form").style.display = "none";
                     document.getElementById("star-talk").style.display = "none";
                     document.getElementById("image-div-two").style.display = "block";
                     document.getElementById('message-fail').innerHTML = response.message;
